@@ -1,0 +1,1 @@
+INSERT INTO subforum VALUES(1,'Perros','Foro para perros')
