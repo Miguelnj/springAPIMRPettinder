@@ -7,7 +7,8 @@ public class Subforum {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "id", updatable = false, nullable = false, unique = true)
+    private Long id;
     @Column(nullable = false)
     private String title;
     @Column(nullable = false)
@@ -22,7 +23,7 @@ public class Subforum {
         //this.threads = threads;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -44,5 +45,9 @@ public class Subforum {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setNullId() {
+        this.id = null;
     }
 }
