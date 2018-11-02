@@ -32,8 +32,10 @@ public class SubforumService {
 
     public void update(Subforum updatedSubforum, Long id) {
         Subforum subforumToBeUpdated = get(id);
+
         subforumToBeUpdated.setTitle(updatedSubforum.getTitle());
         subforumToBeUpdated.setDescription(updatedSubforum.getDescription());
+
         subforumRepository.save(subforumToBeUpdated);
     }
 

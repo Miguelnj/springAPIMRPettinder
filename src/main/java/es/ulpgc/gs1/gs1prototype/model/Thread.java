@@ -1,16 +1,24 @@
 package es.ulpgc.gs1.gs1prototype.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "threads")
 public class Thread {
 
-    private String title;
-    private String description;
-    private LocalDateTime creationDate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false, unique = true)
     private Long id;
+    @Column(nullable = false)
+    private String title;
+    @Column(nullable = false)
+    private String description;
+    @Column(nullable = false)
     private Boolean isOpen;
+    @Column
+    private LocalDateTime creationDate;
 
     public Thread(String title, String description, Long id, Boolean isOpen) {
         this.title = title;
@@ -43,16 +51,8 @@ public class Thread {
         return creationDate;
     }
 
-    public void setCreationDate(LocalDateTime creationDate) {
-        this.creationDate = creationDate;
-    }
-
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Boolean getOpen() {
@@ -61,5 +61,9 @@ public class Thread {
 
     public void setOpen(Boolean open) {
         isOpen = open;
+    }
+
+    public void setNullId() {
+        this.id = null;
     }
 }
