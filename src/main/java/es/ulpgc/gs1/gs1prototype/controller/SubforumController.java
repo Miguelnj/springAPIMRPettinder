@@ -42,6 +42,4 @@ public class SubforumController {
     public void updateSubforum(@RequestBody Subforum updatedSubforum, @PathVariable Long id){
         subforumService.update(updatedSubforum, id);
     }
-
-
 }
