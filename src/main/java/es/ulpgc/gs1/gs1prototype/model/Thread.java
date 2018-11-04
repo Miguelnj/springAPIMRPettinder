@@ -9,7 +9,7 @@ public class Thread {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false, unique = true)
+    @Column(updatable = false, nullable = false, unique = true)
     private Long id;
     @Column(nullable = false)
     private String title;

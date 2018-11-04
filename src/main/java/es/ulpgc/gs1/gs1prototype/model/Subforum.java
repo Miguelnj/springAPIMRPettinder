@@ -1,18 +1,21 @@
 package es.ulpgc.gs1.gs1prototype.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Subforum {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false, unique = true)
+    @Column(updatable = false, nullable = false, unique = true)
     private Long id;
     @Column(nullable = false)
     private String title;
     @Column(nullable = false)
     private String description;
+    @ElementCollection
+    private Set<Thread> threads;
 
     public Subforum() {
     }
@@ -48,5 +51,14 @@ public class Subforum {
 
     public void setNullId() {
         this.id = null;
+    }
+
+
+    public Set<Thread> getThreads() {
+        return threads;
+    }
+
+    public void setThreads(Set<Thread> threads) {
+        this.threads = threads;
     }
 }
