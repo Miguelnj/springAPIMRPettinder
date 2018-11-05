@@ -14,7 +14,7 @@ public class Subforum {
     private String title;
     @Column(nullable = false)
     private String description;
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private Set<Thread> threads;
 
     public Subforum() {
@@ -60,5 +60,18 @@ public class Subforum {
 
     public void setThreads(Set<Thread> threads) {
         this.threads = threads;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder toReturn = new StringBuilder();
+        toReturn.append("Subforum with id: ").append(id);
+        toReturn.append("\nSubforum titled: ").append(title);
+        toReturn.append("\nWith description:\n").append(description);
+        toReturn.append("\nAnd owes the following threads:");
+        for (Thread thread : threads) {
+            toReturn.append("\n\n\n").append(thread.toString());
+        }
+        return toReturn.toString();
     }
 }

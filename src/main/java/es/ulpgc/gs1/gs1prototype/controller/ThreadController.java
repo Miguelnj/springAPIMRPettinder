@@ -1,6 +1,7 @@
 package es.ulpgc.gs1.gs1prototype.controller;
 
 import es.ulpgc.gs1.gs1prototype.model.Thread;
+import es.ulpgc.gs1.gs1prototype.model.ThreadDTO;
 import es.ulpgc.gs1.gs1prototype.service.ThreadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,9 +30,8 @@ public class ThreadController {
     }
 
     @PostMapping(threadPath)
-    public void addThread(@RequestBody Thread thread){
-        thread.setNullId();
-        threadService.add(thread);
+    public void addThread(@RequestBody ThreadDTO threadDTO){
+        threadService.add(threadDTO);
     }
 
     @DeleteMapping(threadPath + "/{id}")

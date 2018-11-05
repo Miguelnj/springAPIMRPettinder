@@ -1,6 +1,8 @@
 package es.ulpgc.gs1.gs1prototype.service;
 
+import es.ulpgc.gs1.gs1prototype.model.Subforum;
 import es.ulpgc.gs1.gs1prototype.model.Thread;
+import es.ulpgc.gs1.gs1prototype.model.ThreadDTO;
 import es.ulpgc.gs1.gs1prototype.repository.ThreadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,10 +14,12 @@ import java.util.NoSuchElementException;
 public class ThreadService {
 
     private final ThreadRepository threadRepository;
+    private final SubforumService subforumService;
 
     @Autowired
-    public ThreadService(ThreadRepository threadRepository){
+    public ThreadService(ThreadRepository threadRepository,SubforumService subforumService){
         this.threadRepository = threadRepository;
+        this.subforumService = subforumService;
     }
 
     public List<Thread> getAllThreads() {
@@ -26,8 +30,14 @@ public class ThreadService {
         return threadRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
-    public void add(Thread thread) {
-        threadRepository.save(thread);
+    public void add(ThreadDTO threadDTO) {
+        Thread thread = new Thread(threadDTO.getDescription(),threadDTO.getTitle());
+
+        thread = threadRepository.save(thread);
+
+        Subforum subforum = subforumService.get(threadDTO.getParentSubforumId());
+        subforum.getThreads().add(thread);
+        subforumService.update(subforum,subforum.getId());
     }
 
     public void delete(Long id) {

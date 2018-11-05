@@ -35,6 +35,7 @@ public class SubforumService {
 
         subforumToBeUpdated.setTitle(updatedSubforum.getTitle());
         subforumToBeUpdated.setDescription(updatedSubforum.getDescription());
+        subforumToBeUpdated.setThreads(updatedSubforum.getThreads());
 
         subforumRepository.save(subforumToBeUpdated);
     }

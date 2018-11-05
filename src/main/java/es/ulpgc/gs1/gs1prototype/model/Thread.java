@@ -17,15 +17,13 @@ public class Thread {
     private String description;
     @Column(nullable = false)
     private Boolean isOpen;
-    @Column
     private LocalDateTime creationDate;
 
-    public Thread(String title, String description, Long id, Boolean isOpen) {
+    public Thread(String title, String description) {
         this.title = title;
         this.description = description;
         this.creationDate = LocalDateTime.now();
-        this.id = id;
-        this.isOpen = isOpen;
+        this.isOpen = true;
     }
 
     public Thread(){
@@ -63,7 +61,14 @@ public class Thread {
         isOpen = open;
     }
 
-    public void setNullId() {
-        this.id = null;
+    @Override
+    public String toString(){
+        return "Thread with id: " + id +
+                "\nCreated: " + creationDate +
+                "\nThread with title: " + title +
+                "\nWith description:\n" + description +
+                "\nAnd status: " + (isOpen ? "Open" : "Closed") +
+                "\nThread have the following messages: ";
     }
+
 }
