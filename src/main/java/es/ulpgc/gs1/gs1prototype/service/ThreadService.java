@@ -31,8 +31,7 @@ public class ThreadService {
     }
 
     public void add(ThreadDTO threadDTO) {
-        Thread thread = new Thread(threadDTO.getDescription(),threadDTO.getTitle());
-
+        Thread thread = new Thread(threadDTO.getDescription(),threadDTO.getTitle(),threadDTO.getMessages());
         thread = threadRepository.save(thread);
 
         Subforum subforum = subforumService.get(threadDTO.getParentSubforumId());

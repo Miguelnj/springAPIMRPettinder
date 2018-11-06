@@ -2,6 +2,7 @@ package es.ulpgc.gs1.gs1prototype.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "threads")
@@ -18,10 +19,13 @@ public class Thread {
     @Column(nullable = false)
     private Boolean isOpen;
     private LocalDateTime creationDate;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<Message> messages;
 
-    public Thread(String title, String description) {
+    public Thread(String title, String description,Set<Message> messages) {
         this.title = title;
         this.description = description;
+        this.messages = messages;
         this.creationDate = LocalDateTime.now();
         this.isOpen = true;
     }
@@ -61,6 +65,10 @@ public class Thread {
         isOpen = open;
     }
 
+    public Set<Message> getMessages() {
+        return messages;
+    }
+
     @Override
     public String toString(){
         return "Thread with id: " + id +
@@ -70,5 +78,4 @@ public class Thread {
                 "\nAnd status: " + (isOpen ? "Open" : "Closed") +
                 "\nThread have the following messages: ";
     }
-
 }
