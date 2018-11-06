@@ -34,11 +34,6 @@ public class ThreadController {
         threadService.add(threadDTO);
     }
 
-    @DeleteMapping(threadPath + "/{id}")
-    public void deleteThread(@PathVariable Long id){
-        threadService.delete(id);
-    }
-
     @PutMapping(threadPath + "/{id}")
     public void updateThread(@PathVariable Long id, @RequestBody Thread thread){
         threadService.update(id,thread);

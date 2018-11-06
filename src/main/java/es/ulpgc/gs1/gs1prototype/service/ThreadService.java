@@ -39,10 +39,6 @@ public class ThreadService {
         subforumService.update(subforum,subforum.getId());
     }
 
-    public void delete(Long id) {
-        threadRepository.deleteById(id);
-    }
-
     public void update(Long id, Thread thread) {
         Thread threadToBeUpdated = get(id);
 
