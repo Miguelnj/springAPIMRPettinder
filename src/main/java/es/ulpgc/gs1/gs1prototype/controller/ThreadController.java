@@ -12,7 +12,7 @@ import java.util.List;
 public class ThreadController {
 
     private final ThreadService threadService;
-    private final String threadPath = "/threads";
+    public static final String threadPath = "/threads";
 
     @Autowired
     public ThreadController(ThreadService threadService){

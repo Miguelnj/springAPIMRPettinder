@@ -12,7 +12,7 @@ import java.util.List;
 public class MessageController {
 
     private final MessageService messageService;
-    private static final String messagePath = "/messages";
+    public static final String messagePath = "/messages";
 
     @Autowired
     public MessageController(MessageService messageService) {
