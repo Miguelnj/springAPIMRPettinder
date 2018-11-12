@@ -17,7 +17,8 @@ public class SubforumController {
     public SubforumController(SubforumService subforumService){
         this.subforumService = subforumService;
     }
-
+    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:8100"},
+            maxAge = 4800, allowCredentials = "false")
     @GetMapping(subforumPath)
     public List<Subforum> getAllSubforums(){
         return subforumService.getAllSubforums();

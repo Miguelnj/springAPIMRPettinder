@@ -18,7 +18,8 @@ public class ThreadController {
     public ThreadController(ThreadService threadService){
         this.threadService = threadService;
     }
-
+    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:8100"},
+            maxAge = 4800, allowCredentials = "false")
     @GetMapping(threadPath)
     public List<Thread> getAllThreads(){
         return threadService.getAllThreads();

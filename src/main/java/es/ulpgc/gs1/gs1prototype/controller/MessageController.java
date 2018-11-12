@@ -5,6 +5,8 @@ import es.ulpgc.gs1.gs1prototype.model.MessageDTO;
 import es.ulpgc.gs1.gs1prototype.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 
 import java.util.List;
 
@@ -18,7 +20,8 @@ public class MessageController {
     public MessageController(MessageService messageService) {
         this.messageService = messageService;
     }
-
+    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:8100"},
+            maxAge = 4800, allowCredentials = "false")
     @GetMapping(path = messagePath)
     public List<Message> getAllMessages(){
         return messageService.getAll();
