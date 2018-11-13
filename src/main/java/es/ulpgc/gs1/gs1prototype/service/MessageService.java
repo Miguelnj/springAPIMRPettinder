@@ -4,7 +4,9 @@ import es.ulpgc.gs1.gs1prototype.model.Message;
 import es.ulpgc.gs1.gs1prototype.model.MessageDTO;
 import es.ulpgc.gs1.gs1prototype.model.Thread;
 import es.ulpgc.gs1.gs1prototype.repository.MessageRepository;
+import es.ulpgc.gs1.gs1prototype.security.MyUserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -32,7 +34,7 @@ public class MessageService {
     }
 
     public void add(MessageDTO message) {
-        Message messageToAdd = new Message(message.getContent());
+        Message messageToAdd = new Message(message.getContent(), getLoggedUser().getUsername());
         messageToAdd = messageRepository.save(messageToAdd);
 
         Thread parentThread = threadService.get(message.getParentThreadId());
@@ -49,5 +51,12 @@ public class MessageService {
         messageToBeUpdated.increaseModifiedCount();
 
         messageRepository.save(messageToBeUpdated);
+    }
+
+    private MyUserPrincipal getLoggedUser() {
+        return (MyUserPrincipal) SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getPrincipal();
     }
 }

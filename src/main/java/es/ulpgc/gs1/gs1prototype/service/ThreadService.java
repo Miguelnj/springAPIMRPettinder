@@ -4,7 +4,9 @@ import es.ulpgc.gs1.gs1prototype.model.Subforum;
 import es.ulpgc.gs1.gs1prototype.model.Thread;
 import es.ulpgc.gs1.gs1prototype.model.ThreadDTO;
 import es.ulpgc.gs1.gs1prototype.repository.ThreadRepository;
+import es.ulpgc.gs1.gs1prototype.security.MyUserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,7 +33,7 @@ public class ThreadService {
     }
 
     public void add(ThreadDTO threadDTO) {
-        Thread thread = new Thread(threadDTO.getDescription(),threadDTO.getTitle(),threadDTO.getMessages());
+        Thread thread = new Thread(threadDTO.getDescription(),threadDTO.getTitle(),threadDTO.getMessages(),getLoggedUser().getUsername());
         thread = threadRepository.save(thread);
 
         Subforum subforum = subforumService.get(threadDTO.getParentSubforumId());
@@ -48,4 +50,12 @@ public class ThreadService {
 
         threadRepository.save(thread);
     }
+
+    private MyUserPrincipal getLoggedUser() {
+        return (MyUserPrincipal) SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getPrincipal();
+    }
+
 }
