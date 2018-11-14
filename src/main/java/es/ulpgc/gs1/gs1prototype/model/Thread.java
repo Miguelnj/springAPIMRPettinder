@@ -19,11 +19,13 @@ public class Thread {
     @Column(nullable = false)
     private Boolean isOpen;
     private LocalDateTime creationDate;
+    private String createdBy;
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Message> messages;
 
-    public Thread(String title, String description,Set<Message> messages) {
+    public Thread(String title, String description,Set<Message> messages, String createdBy) {
         this.title = title;
+        this.createdBy = createdBy;
         this.description = description;
         this.messages = messages;
         this.creationDate = LocalDateTime.now();
@@ -77,5 +79,9 @@ public class Thread {
                 "\nWith description:\n" + description +
                 "\nAnd status: " + (isOpen ? "Open" : "Closed") +
                 "\nThread have the following messages: ";
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
     }
 }

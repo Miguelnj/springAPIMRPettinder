@@ -1,5 +1,7 @@
 package es.ulpgc.gs1.gs1prototype.model;
 
+import es.ulpgc.gs1.gs1prototype.model.user.User;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -16,11 +18,14 @@ public class Message {
     private LocalDateTime writtenDate;
     private LocalDateTime lastEditDate;
     private int timesModified;
+    private String writtenBy;
+
 
     public Message(){}
 
-    public Message(String content) {
+    public Message(String content, String writtenBy) {
         this.content = content;
+        this.writtenBy = writtenBy;
         this.writtenDate = LocalDateTime.now();
         this.lastEditDate = LocalDateTime.now();
     }
@@ -55,5 +60,9 @@ public class Message {
 
     public void increaseModifiedCount() {
         this.timesModified++;
+    }
+
+    public String getWrittenBy() {
+        return writtenBy;
     }
 }

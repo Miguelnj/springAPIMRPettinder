@@ -4,6 +4,7 @@ import es.ulpgc.gs1.gs1prototype.model.user.Role;
 import es.ulpgc.gs1.gs1prototype.model.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
