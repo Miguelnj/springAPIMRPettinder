@@ -1,7 +1,7 @@
 package es.ulpgc.gs1.gs1prototype.service;
 
 import es.ulpgc.gs1.gs1prototype.model.Message;
-import es.ulpgc.gs1.gs1prototype.model.MessageDTO;
+import es.ulpgc.gs1.gs1prototype.model.DTO.MessageDTO;
 import es.ulpgc.gs1.gs1prototype.model.Thread;
 import es.ulpgc.gs1.gs1prototype.repository.MessageRepository;
 import es.ulpgc.gs1.gs1prototype.security.MyUserPrincipal;
@@ -40,7 +40,6 @@ public class MessageService {
         Thread parentThread = threadService.get(message.getParentThreadId());
         parentThread.getMessages().add(messageToAdd);
         threadService.update(message.getParentThreadId(),parentThread);
-
     }
 
     public void update(Long id, Message message) {

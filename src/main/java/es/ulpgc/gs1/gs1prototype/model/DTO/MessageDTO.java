@@ -1,4 +1,4 @@
-package es.ulpgc.gs1.gs1prototype.model;
+package es.ulpgc.gs1.gs1prototype.model.DTO;
 
 public class MessageDTO {
 

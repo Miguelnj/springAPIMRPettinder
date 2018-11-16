@@ -1,4 +1,6 @@
-package es.ulpgc.gs1.gs1prototype.model;
+package es.ulpgc.gs1.gs1prototype.model.DTO;
+
+import es.ulpgc.gs1.gs1prototype.model.Message;
 
 import java.util.Set;
 

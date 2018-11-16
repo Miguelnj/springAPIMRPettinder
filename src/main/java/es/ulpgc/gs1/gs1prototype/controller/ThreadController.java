@@ -1,12 +1,16 @@
 package es.ulpgc.gs1.gs1prototype.controller;
 
+import es.ulpgc.gs1.gs1prototype.model.DTO.NoMessageThreadDTO;
+import es.ulpgc.gs1.gs1prototype.model.Message;
 import es.ulpgc.gs1.gs1prototype.model.Thread;
-import es.ulpgc.gs1.gs1prototype.model.ThreadDTO;
+import es.ulpgc.gs1.gs1prototype.model.DTO.ThreadDTO;
 import es.ulpgc.gs1.gs1prototype.service.ThreadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class ThreadController {
@@ -37,6 +41,16 @@ public class ThreadController {
     @PutMapping(threadPath + "/{id}")
     public void updateThread(@PathVariable Long id, @RequestBody Thread thread){
         threadService.update(id,thread);
+    }
+
+    @GetMapping(threadPath + "/{id}/messages")
+    public Set<Message> getAllMessagesGivenId(@PathVariable Long id){
+        return threadService.getMessagesGivenId(id);
+    }
+
+    @GetMapping(threadPath + "/noMessages")
+    public ArrayList<NoMessageThreadDTO> getAllThreadsNotSendingMessages(){
+        return threadService.getAllThreadsNotSendingMessages();
     }
 
 }

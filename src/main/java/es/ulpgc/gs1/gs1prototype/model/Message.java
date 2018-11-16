@@ -1,7 +1,5 @@
 package es.ulpgc.gs1.gs1prototype.model;
 
-import es.ulpgc.gs1.gs1prototype.model.user.User;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
