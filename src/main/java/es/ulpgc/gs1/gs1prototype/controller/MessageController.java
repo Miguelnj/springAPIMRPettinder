@@ -1,7 +1,7 @@
 package es.ulpgc.gs1.gs1prototype.controller;
 
 import es.ulpgc.gs1.gs1prototype.model.Message;
-import es.ulpgc.gs1.gs1prototype.model.MessageDTO;
+import es.ulpgc.gs1.gs1prototype.model.DTO.MessageDTO;
 import es.ulpgc.gs1.gs1prototype.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

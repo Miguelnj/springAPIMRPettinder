@@ -1,16 +1,20 @@
 package es.ulpgc.gs1.gs1prototype.service;
 
+import es.ulpgc.gs1.gs1prototype.model.DTO.NoMessageThreadDTO;
+import es.ulpgc.gs1.gs1prototype.model.Message;
 import es.ulpgc.gs1.gs1prototype.model.Subforum;
 import es.ulpgc.gs1.gs1prototype.model.Thread;
-import es.ulpgc.gs1.gs1prototype.model.ThreadDTO;
+import es.ulpgc.gs1.gs1prototype.model.DTO.ThreadDTO;
 import es.ulpgc.gs1.gs1prototype.repository.ThreadRepository;
 import es.ulpgc.gs1.gs1prototype.security.MyUserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 @Service
 public class ThreadService {
@@ -58,4 +62,20 @@ public class ThreadService {
                 .getPrincipal();
     }
 
+    public Set<Message> getMessagesGivenId(Long id) {
+        return get(id).getMessages();
+    }
+
+    public ArrayList<NoMessageThreadDTO> getAllThreadsNotSendingMessages() {
+        return getNoMessageThreadDTOS(getAllThreads());
+    }
+
+    public ArrayList<NoMessageThreadDTO> getNoMessageThreadDTOS(List<Thread> threads) {
+        ArrayList<NoMessageThreadDTO> noMessageThreadDTOS = new ArrayList<>();
+        for (Thread thread : threads) {
+            noMessageThreadDTOS.add(new NoMessageThreadDTO(thread.getId(),thread.getTitle(),thread.getDescription(),
+                    thread.getOpen(),thread.getCreationDate(),thread.getCreatedBy()));
+        }
+        return noMessageThreadDTOS;
+    }
 }
