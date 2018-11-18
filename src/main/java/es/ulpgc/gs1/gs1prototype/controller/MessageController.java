@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:8100", "http://3d2208cc.ngrok.io"},
+        maxAge = 4800, allowCredentials = "true")
 public class MessageController {
 
     private final MessageService messageService;
@@ -20,8 +22,7 @@ public class MessageController {
     public MessageController(MessageService messageService) {
         this.messageService = messageService;
     }
-    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:8100"},
-            maxAge = 4800, allowCredentials = "false")
+
     @GetMapping(path = messagePath)
     public List<Message> getAllMessages(){
         return messageService.getAll();

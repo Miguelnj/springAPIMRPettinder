@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:8100", "http://3d2208cc.ngrok.io"},
+        maxAge = 4800, allowCredentials = "true")
 public class ThreadController {
 
     private final ThreadService threadService;
@@ -22,12 +24,12 @@ public class ThreadController {
     public ThreadController(ThreadService threadService){
         this.threadService = threadService;
     }
-    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:8100"},
-            maxAge = 4800, allowCredentials = "false")
+
     @GetMapping(threadPath)
     public List<Thread> getAllThreads(){
         return threadService.getAllThreads();
     }
+
 
     @GetMapping(threadPath + "/{id}")
     public Thread getThread(@PathVariable Long id){

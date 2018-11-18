@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:8100", "http://3d2208cc.ngrok.io"},
+        maxAge = 4800, allowCredentials = "true")
 public class SubforumController {
 
     public static final String subforumPath = "/subforums";
@@ -22,8 +24,7 @@ public class SubforumController {
     public SubforumController(SubforumService subforumService){
         this.subforumService = subforumService;
     }
-    @CrossOrigin(origins = {"http://localhost:8080", "http://localhost:8100"},
-            maxAge = 4800, allowCredentials = "false")
+
     @GetMapping(subforumPath)
     public List<Subforum> getAllSubforums(){
         return subforumService.getAllSubforums();
