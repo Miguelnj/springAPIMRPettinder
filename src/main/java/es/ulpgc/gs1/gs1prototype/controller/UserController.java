@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = Gs1prototypeApplication.APIURL)
+@CrossOrigin(origins = Gs1prototypeApplication.APIURL, maxAge = 4800, allowCredentials = "true")
 public class UserController {
 
     private UserService userService;
