@@ -1,5 +1,6 @@
 package es.ulpgc.gs1.gs1prototype.controller;
 
+import es.ulpgc.gs1.gs1prototype.Gs1prototypeApplication;
 import es.ulpgc.gs1.gs1prototype.model.Message;
 import es.ulpgc.gs1.gs1prototype.model.DTO.MessageDTO;
 import es.ulpgc.gs1.gs1prototype.service.MessageService;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = Gs1prototypeApplication.APIURL)
 public class MessageController {
 
     private final MessageService messageService;

@@ -1,5 +1,6 @@
 package es.ulpgc.gs1.gs1prototype.controller;
 
+import es.ulpgc.gs1.gs1prototype.Gs1prototypeApplication;
 import es.ulpgc.gs1.gs1prototype.model.DTO.NoMessageThreadDTO;
 import es.ulpgc.gs1.gs1prototype.model.DTO.NoThreadSubforumDTO;
 import es.ulpgc.gs1.gs1prototype.model.Subforum;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
+@CrossOrigin(origins = Gs1prototypeApplication.APIURL)
 public class SubforumController {
 
     public static final String subforumPath = "/subforums";

@@ -1,5 +1,6 @@
 package es.ulpgc.gs1.gs1prototype.controller;
 
+import es.ulpgc.gs1.gs1prototype.Gs1prototypeApplication;
 import es.ulpgc.gs1.gs1prototype.model.DTO.NoMessageThreadDTO;
 import es.ulpgc.gs1.gs1prototype.model.Message;
 import es.ulpgc.gs1.gs1prototype.model.Thread;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
+@CrossOrigin(origins = Gs1prototypeApplication.APIURL)
 public class ThreadController {
 
     private final ThreadService threadService;
