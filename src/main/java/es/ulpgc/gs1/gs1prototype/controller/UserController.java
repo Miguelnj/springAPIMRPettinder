@@ -1,5 +1,6 @@
 package es.ulpgc.gs1.gs1prototype.controller;
 
+import es.ulpgc.gs1.gs1prototype.Gs1prototypeApplication;
 import es.ulpgc.gs1.gs1prototype.model.user.User;
 import es.ulpgc.gs1.gs1prototype.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:8100", "http://3d2208cc.ngrok.io"},
-        maxAge = 4800, allowCredentials = "true")
+@CrossOrigin(origins = Gs1prototypeApplication.APIURL, maxAge = 4800, allowCredentials = "true")
 public class UserController {
 
     private UserService userService;

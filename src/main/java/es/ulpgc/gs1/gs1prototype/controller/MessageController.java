@@ -1,18 +1,16 @@
 package es.ulpgc.gs1.gs1prototype.controller;
 
+import es.ulpgc.gs1.gs1prototype.Gs1prototypeApplication;
 import es.ulpgc.gs1.gs1prototype.model.Message;
 import es.ulpgc.gs1.gs1prototype.model.DTO.MessageDTO;
 import es.ulpgc.gs1.gs1prototype.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
-
 
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:8100", "http://3d2208cc.ngrok.io"},
-        maxAge = 4800, allowCredentials = "true")
+@CrossOrigin(origins = Gs1prototypeApplication.APIURL, maxAge = 4800, allowCredentials = "true")
 public class MessageController {
 
     private final MessageService messageService;
