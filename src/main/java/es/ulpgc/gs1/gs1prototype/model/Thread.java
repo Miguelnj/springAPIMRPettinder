@@ -2,6 +2,7 @@ package es.ulpgc.gs1.gs1prototype.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.Set;
 
 @Entity
@@ -23,11 +24,11 @@ public class Thread {
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Message> messages;
 
-    public Thread(String title, String description,Set<Message> messages, String createdBy) {
+    public Thread(String title, String description, String createdBy) {
         this.title = title;
         this.createdBy = createdBy;
         this.description = description;
-        this.messages = messages;
+        this.messages = Collections.emptySet();
         this.creationDate = LocalDateTime.now();
         this.isOpen = true;
     }

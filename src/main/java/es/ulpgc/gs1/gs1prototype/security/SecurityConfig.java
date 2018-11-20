@@ -46,6 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(MessageController.messagePath).authenticated()
                 .antMatchers("/h2_console/**").permitAll()
                 .and().logout().permitAll()
+                .and().formLogin().permitAll()
                 .and().httpBasic();
 
         http.headers().frameOptions().disable();
