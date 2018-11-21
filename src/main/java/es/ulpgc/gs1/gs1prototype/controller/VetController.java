@@ -14,6 +14,7 @@ public class VetController {
 
     private final VetService vetService;
     private static final String vetPath = "/vets";
+    private static final String vetAvailablePath = "/vetsAvailable";
 
     @Autowired
     public VetController(VetService vetService) {
@@ -21,7 +22,7 @@ public class VetController {
     }
 
     @GetMapping(vetPath)
-    public List<Vet> getAllUsers(){
+    public List<Vet> getAllVets(){
         return vetService.getAll();
     }
 
@@ -30,9 +31,11 @@ public class VetController {
         return vetService.get(id);
     }
 
-    @GetMapping(vetPath + "/prueba")
-    public String getText(){
-        return "comeme el higo";
+    @GetMapping
+    public List<Vet> getAvailableVets(){
+        return getAllVets();
     }
+
+
 
 }
