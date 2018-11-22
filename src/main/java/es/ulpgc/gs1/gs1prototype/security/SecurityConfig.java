@@ -3,7 +3,6 @@ package es.ulpgc.gs1.gs1prototype.security;
 import es.ulpgc.gs1.gs1prototype.controller.MessageController;
 import es.ulpgc.gs1.gs1prototype.controller.SubforumController;
 import es.ulpgc.gs1.gs1prototype.controller.ThreadController;
-import es.ulpgc.gs1.gs1prototype.controller.UserController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -45,10 +44,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(SubforumController.subforumPath).authenticated()
                 .antMatchers(ThreadController.threadPath).authenticated()
                 .antMatchers(MessageController.messagePath).authenticated()
-                .antMatchers(UserController.userPath).authenticated()
                 .antMatchers("/h2_console/**").permitAll()
-                .and().formLogin().loginPage(UserController.loginPath).permitAll()
                 .and().logout().permitAll()
+                .and().formLogin().permitAll()
                 .and().httpBasic();
 
         http.headers().frameOptions().disable();

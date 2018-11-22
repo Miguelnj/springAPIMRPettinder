@@ -31,7 +31,7 @@ public class VetController {
         return vetService.get(id);
     }
 
-    @GetMapping
+    @GetMapping(vetAvailablePath)
     public List<Vet> getAvailableVets(){
         return getAllVets();
     }
