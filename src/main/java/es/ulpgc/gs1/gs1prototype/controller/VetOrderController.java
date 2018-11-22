@@ -1,36 +1,37 @@
 package es.ulpgc.gs1.gs1prototype.controller;
 
-import es.ulpgc.gs1.gs1prototype.Gs1prototypeApplication;
 import es.ulpgc.gs1.gs1prototype.model.VetOrder;
 import es.ulpgc.gs1.gs1prototype.service.VetOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = Gs1prototypeApplication.APIURL, maxAge = 4800, allowCredentials = "true")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class VetOrderController {
 
-    private VetOrderService vetOrderService;
-    private static final String vetOrderPath = "/vetorder";
+    private final VetOrderService vetOrderService;
+    private static final String vetOrderPath = "/vetOrders";
 
     @Autowired
-    public VetOrderController(VetOrderService vetOrderService){
+    public VetOrderController(VetOrderService vetOrderService) {
         this.vetOrderService = vetOrderService;
     }
 
-    @GetMapping(vetOrderPath)
+    @GetMapping(path = vetOrderPath)
     public List<VetOrder> getAllVetOrders(){
         return vetOrderService.getAll();
     }
 
-    @GetMapping(vetOrderPath + "/{id}")
+    @GetMapping(path = vetOrderPath + "/{id}")
     public VetOrder getVetOrder(@PathVariable Long id){
         return vetOrderService.get(id);
+    }
+
+    @PostMapping(path = vetOrderPath)
+    public void addVetOrder(@RequestBody VetOrder vetOrder){
+        vetOrderService.add(vetOrder);
     }
 
 
