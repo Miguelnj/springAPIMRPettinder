@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@CrossOrigin(origins = Gs1prototypeApplication.APIURL)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SubforumController {
 
     public static final String subforumPath = "/subforums";

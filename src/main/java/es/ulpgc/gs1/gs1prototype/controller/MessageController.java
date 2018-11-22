@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = Gs1prototypeApplication.APIURL)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MessageController {
 
     private final MessageService messageService;
