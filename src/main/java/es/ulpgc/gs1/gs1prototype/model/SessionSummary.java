@@ -15,6 +15,7 @@ public class SessionSummary {
     private Log log;
     private String recipe;
     private String observations;
+    @OneToOne(fetch = FetchType.EAGER)
     private Vet attendedBy;
 
     public SessionSummary(Log log, String recipe, String observations, Vet attendedBy) {
