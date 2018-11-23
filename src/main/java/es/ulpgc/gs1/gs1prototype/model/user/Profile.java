@@ -14,7 +14,7 @@ public class Profile {
     private String name;
     @Column(nullable = false)
     private String surname;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "date")
     private Date dateOfBirth;
     @Column(nullable = false)
     private String email;

@@ -14,7 +14,8 @@ INSERT INTO subforum_threads VALUES(2,3)
 INSERT INTO profile VALUES(1,'1996-10-03','pepito.grillo@gmail.com','Pepito','Grillo')
 INSERT INTO user VALUES(1,'$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','user',1)
 
-
+INSERT INTO profile (id, name, surname, date, email) VALUES (2,'Veterinario','Apellido de Veterinario','1996-10-03','pepito.grillo@gmail.com')
+INSERT INTO vet (id, username, password, available, profile_id) VALUES (2,'user2','$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','true',2)
 
 INSERT INTO roles VALUES(1,'ROLE_ADMIN')
 INSERT INTO roles VALUES(2,'ROLE_USER')

@@ -14,6 +14,7 @@ public class Vet {
     private String username;
     @Column(nullable = false, length = 60)
     private String password;
+    @Column(name = "available")
     private boolean isAvailable;
     @OneToOne(fetch = FetchType.EAGER)
     private Profile profile;
