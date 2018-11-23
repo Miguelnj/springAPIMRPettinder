@@ -49,4 +49,8 @@ public class UserService {
                         new HashSet<>(Arrays.asList(new Role("ROLE_ADMIN"), new Role("ROLE_USER"))))
         );
     }
+
+    public User getGivenUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 }
