@@ -14,15 +14,17 @@ public class Vet {
     private String username;
     @Column(nullable = false, length = 60)
     private String password;
+    private boolean isAvailable;
     @OneToOne(fetch = FetchType.EAGER)
     private Profile profile;
 
     public Vet(){}
 
-    public Vet(Profile profile, String username, String password, Set<Role> roles) {
+    public Vet(Profile profile, String username, String password, Set<Role> roles, boolean isAvailable) {
         this.profile = profile;
         this.username = username;
         this.password = password;
+        this.isAvailable = isAvailable;
     }
 
     public String getPassword() {
@@ -33,6 +35,14 @@ public class Vet {
         this.username = username;
         this.password = password;
         this.profile = profile;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 
     public void setPassword(String password) {
