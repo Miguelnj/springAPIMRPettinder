@@ -10,6 +10,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 public class Gs1prototypeApplication {
 
+    public static final String APIURL = "http://ed8b3916.ngrok.io";
+
 	public static void main(String[] args) {
 		SpringApplication.run(Gs1prototypeApplication.class, args);
 	}
