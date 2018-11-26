@@ -31,16 +31,24 @@ INSERT INTO messages VALUES(1,'Hey! This is my first message, how are you all?',
 INSERT INTO threads_messages VALUES(1,1)
 
 INSERT INTO profile VALUES(1,'1996-10-03','pepito.grillo@gmail.com','Pepito','Grillo')
-INSERT INTO user VALUES(1,'$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','user',1)
+INSERT INTO user VALUES(1,'$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','admin',1)
+INSERT INTO profile VALUES(2,'1996-10-03','pepito.grillo@gmail.com','Pepito','Grillo')
+INSERT INTO user VALUES(2,'$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','user',2)
 
-INSERT INTO profile VALUES(3,'1996-10-03','vet.grillo@gmail.com','Veterinario','Apellido de Veterinario')
-INSERT INTO user VALUES(2,'$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','user2', 3)
 
+INSERT INTO profile (id, name, surname, date, email) VALUES (3,'Veterinario3','Apellido de Veterinario3','1996-10-03','vet3.grillo@gmail.com')
+INSERT INTO vet (id, username, password, available, profile_id) VALUES (1,'vet3','$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','true',3)
+INSERT INTO profile (id, name, surname, date, email) VALUES (4,'Veterinario4','Apellido de Veterinario4','1996-10-03','vet4.grillo@gmail.com')
+INSERT INTO vet (id, username, password, available, profile_id) VALUES (2,'vet4','$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','true',4)
+INSERT INTO profile (id, name, surname, date, email) VALUES (5,'Veterinario5','Apellido de Veterinario5','1996-10-03','vet5.grillo@gmail.com')
+INSERT INTO vet (id, username, password, available, profile_id) VALUES (3,'vet5','$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','false',5)
+INSERT INTO profile (id, name, surname, date, email) VALUES (6,'Veterinario6','Apellido de Veterinario6','1996-10-03','vet6.grillo@gmail.com')
+INSERT INTO vet (id, username, password, available, profile_id) VALUES (4,'vet6','$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','true',6)
+INSERT INTO profile (id, name, surname, date, email) VALUES (7,'Veterinario7','Apellido de Veterinario7','1996-10-03','vet7.grillo@gmail.com')
+INSERT INTO vet (id, username, password, available, profile_id) VALUES (5,'vet7','$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','false',7)
+INSERT INTO profile (id, name, surname, date, email) VALUES (8,'Veterinario8','Apellido de Veterinario8','1996-10-03','vet8.grillo@gmail.com')
+INSERT INTO vet (id, username, password, available, profile_id) VALUES (6,'vet8','$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','true',8)
 
-INSERT INTO profile (id, name, surname, date, email) VALUES (2,'Veterinario','Apellido de Veterinario','1996-10-03','pepito.grillo@gmail.com')
-INSERT INTO vet (id, username, password, available, profile_id) VALUES (1,'user2','$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','true',2)
-INSERT INTO profile (id, name, surname, date, email) VALUES (4,'Veterinario2','Apellido de Veterinario2','1996-10-03','pepito.grillo@gmail.com')
-INSERT INTO vet (id, username, password, available, profile_id) VALUES (2,'user3','$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','false',4)
 
 INSERT INTO roles VALUES(1,'ROLE_ADMIN')
 INSERT INTO roles VALUES(2,'ROLE_USER')
