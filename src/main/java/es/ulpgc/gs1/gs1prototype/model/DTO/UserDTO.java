@@ -10,13 +10,15 @@ public class UserDTO {
     private String username;
     private String password;
     private Profile profile;
+    private String petName;
     private Set<Role> roles;
 
-    public UserDTO(String username, String password, Profile profile, Set<Role> roles) {
+    public UserDTO(String username, String password, Profile profile, Set<Role> roles, String petName) {
         this.username = username;
         this.password = password;
         this.profile = profile;
         this.roles = roles;
+        this.petName = petName;
     }
 
     public UserDTO(){}
@@ -35,5 +37,9 @@ public class UserDTO {
 
     public Set<Role> getRoles() {
         return roles;
+    }
+
+    public String getPetName() {
+        return petName;
     }
 }

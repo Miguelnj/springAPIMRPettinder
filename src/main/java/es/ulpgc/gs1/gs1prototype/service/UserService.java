@@ -60,20 +60,17 @@ public class UserService {
     public void updateUser(Long id, UserDTO user) {
         User userToChange = get(id);
         if (userToChange == null) return;
-
         if(user.getPassword() != null){
             userToChange.setPassword(new BCryptPasswordEncoder(11).encode(user.getPassword()));
         }
-
+        if(user.getPetName() != null) userToChange.setPetName(user.getPetName());
         if(user.getProfile() != null){
             Profile newProfile = user.getProfile();
             profileRepository.deleteById(userToChange.getProfile().getId());
             newProfile = profileRepository.save(newProfile);
             userToChange.setProfile(newProfile);
         }
-
         if(user.getRoles() != null) setNewRoles(user, userToChange);
-
         userRepository.save(userToChange);
     }
 

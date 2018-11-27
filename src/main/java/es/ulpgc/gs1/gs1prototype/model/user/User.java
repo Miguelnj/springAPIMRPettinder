@@ -16,6 +16,7 @@ public class User {
     private String username;
     @Column(nullable = false, length = 60)
     private String password;
+    private String petName;
     @OneToOne(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
     private Profile profile;
     @ElementCollection(fetch = FetchType.EAGER)
@@ -81,5 +82,13 @@ public class User {
 
     public void setProfile(Profile newProfile) {
         this.profile = newProfile;
+    }
+
+    public String getPetName() {
+        return petName;
+    }
+
+    public void setPetName(String petName) {
+        this.petName = petName;
     }
 }
