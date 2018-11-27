@@ -1,6 +1,5 @@
 package es.ulpgc.gs1.gs1prototype.controller;
 
-import es.ulpgc.gs1.gs1prototype.Gs1prototypeApplication;
 import es.ulpgc.gs1.gs1prototype.model.DTO.UserDTO;
 import es.ulpgc.gs1.gs1prototype.model.user.User;
 import es.ulpgc.gs1.gs1prototype.service.UserService;
@@ -36,6 +35,11 @@ public class UserController {
     @PostMapping(userPath)
     public void addUser(@RequestBody UserDTO user){
         userService.add(user);
+    }
+
+    @PutMapping(userPath + "/{id}")
+    public void updateUser(@PathVariable Long id, @RequestBody UserDTO user) {
+        userService.updateUser(id, user);
     }
 
     @PostMapping(loginPath)

@@ -49,4 +49,8 @@ public class Profile {
     public String getEmail() {
         return email;
     }
+
+    public Long getId() {
+        return this.id;
+    }
 }

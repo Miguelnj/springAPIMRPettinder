@@ -16,7 +16,7 @@ public class User {
     private String username;
     @Column(nullable = false, length = 60)
     private String password;
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
     private Profile profile;
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Thread> initiatedThreads;
@@ -77,5 +77,9 @@ public class User {
 
     public void setThreadOnWhichParticipates(Set<Thread> threadOnWhichParticipates) {
         this.threadOnWhichParticipates = threadOnWhichParticipates;
+    }
+
+    public void setProfile(Profile newProfile) {
+        this.profile = newProfile;
     }
 }
