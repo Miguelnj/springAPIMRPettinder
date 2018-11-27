@@ -31,9 +31,9 @@ INSERT INTO messages VALUES(1,'Hey! This is my first message, how are you all?',
 INSERT INTO threads_messages VALUES(1,1)
 
 INSERT INTO profile VALUES(1,'1996-10-03','pepito.grillo@gmail.com','Pepito','Grillo')
-INSERT INTO user VALUES(1,'$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','admin',1)
+INSERT INTO user VALUES(1,'$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','Pedrito','admin',1)
 INSERT INTO profile VALUES(2,'1996-10-03','pepito.grillo@gmail.com','Pepito','Grillo')
-INSERT INTO user VALUES(2,'$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','user',2)
+INSERT INTO user VALUES(2,'$2a$11$cyTFJaiomsiUHRMdoClAguC4cQek1g/0SVS2DmqUkkwVw6wg4AEZG','Manolito','user',2)
 
 
 INSERT INTO profile (id, name, surname, date, email) VALUES (3,'Veterinario3','Apellido de Veterinario3','1996-10-03','vet3.grillo@gmail.com')
