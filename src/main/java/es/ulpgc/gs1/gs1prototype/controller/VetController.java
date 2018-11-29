@@ -31,6 +31,11 @@ public class VetController {
         return vetService.get(id);
     }
 
+    @GetMapping(vetPath + "/name/{username}")
+    public Vet getUserByUsername(@PathVariable String username){
+        return vetService.getByUsername(username);
+    }
+
     @GetMapping(vetAvailablePath)
     public List<Vet> getAvailableVets(){
         return getAllVets();

@@ -28,5 +28,7 @@ public class VetService {
         return vetRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
+    public Vet getByUsername(String username){return vetRepository.findByUsername(username);}
+
 
 }
