@@ -18,6 +18,8 @@ public class Vet {
     private boolean isAvailable;
     @OneToOne(fetch = FetchType.EAGER)
     private Profile profile;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
     public Vet(){}
 
@@ -26,6 +28,7 @@ public class Vet {
         this.username = username;
         this.password = password;
         this.isAvailable = isAvailable;
+        this.roles = roles;
     }
 
     public String getPassword() {
@@ -72,5 +75,9 @@ public class Vet {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
     }
 }
