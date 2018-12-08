@@ -63,7 +63,7 @@ public class UserService {
         if(user.getPassword() != null){
             userToChange.setPassword(new BCryptPasswordEncoder(11).encode(user.getPassword()));
         }
-        if(user.getPetName() != null) userToChange.setPetName(user.getPetName());
+        if(user.getPets() != null) userToChange.setPets(user.getPets());
         if(user.getProfile() != null){
             Profile newProfile = user.getProfile();
             profileRepository.deleteById(userToChange.getProfile().getId());

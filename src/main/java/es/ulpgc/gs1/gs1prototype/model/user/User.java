@@ -1,5 +1,6 @@
 package es.ulpgc.gs1.gs1prototype.model.user;
 
+import es.ulpgc.gs1.gs1prototype.model.Pet;
 import es.ulpgc.gs1.gs1prototype.model.Thread;
 
 import javax.persistence.*;
@@ -16,7 +17,6 @@ public class User {
     private String username;
     @Column(nullable = false, length = 60)
     private String password;
-    private String petName;
     @OneToOne(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.ALL)
     private Profile profile;
     @ElementCollection(fetch = FetchType.EAGER)
@@ -25,8 +25,11 @@ public class User {
     private Set<Thread> threadOnWhichParticipates;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Role> roles;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Pet> pets;
 
     public User(){}
+
 
     public User(Profile profile, String username, String password, Set<Role> roles) {
         this.profile = profile;
@@ -84,11 +87,11 @@ public class User {
         this.profile = newProfile;
     }
 
-    public String getPetName() {
-        return petName;
+    public Set<Pet> getPets() {
+        return pets;
     }
 
-    public void setPetName(String petName) {
-        this.petName = petName;
+    public void setPets(Set<Pet> pets) {
+        this.pets = pets;
     }
 }

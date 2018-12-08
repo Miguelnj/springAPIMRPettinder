@@ -6,23 +6,26 @@ import es.ulpgc.gs1.gs1prototype.model.user.Role;
 
 import java.util.Set;
 
-public class UserDTO {
+public class VetDTO {
+
 
     private String username;
     private String password;
+    private boolean isAvailable;
+    private String specialty;
     private Profile profile;
-    private Set<Pet> pets;
     private Set<Role> roles;
 
-    public UserDTO(String username, String password, Profile profile, Set<Role> roles, Set<Pet> pets) {
+    public VetDTO(String username, String password, boolean isAvailable, String specialty, Profile profile, Set<Role> roles) {
         this.username = username;
         this.password = password;
+        this.isAvailable = isAvailable;
+        this.specialty = specialty;
         this.profile = profile;
         this.roles = roles;
-        this.pets = pets;
     }
 
-    public UserDTO(){}
+    public VetDTO(){}
 
     public String getUsername() {
         return username;
@@ -32,15 +35,19 @@ public class UserDTO {
         return password;
     }
 
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public String getSpecialty() {
+        return specialty;
+    }
+
     public Profile getProfile() {
         return profile;
     }
 
     public Set<Role> getRoles() {
         return roles;
-    }
-
-    public Set<Pet> getPets() {
-        return pets;
     }
 }

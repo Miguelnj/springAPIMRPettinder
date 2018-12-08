@@ -16,6 +16,7 @@ public class Vet {
     private String password;
     @Column(name = "available")
     private boolean isAvailable;
+    private String specialty;
     @OneToOne(fetch = FetchType.EAGER)
     private Profile profile;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -23,23 +24,27 @@ public class Vet {
 
     public Vet(){}
 
-    public Vet(Profile profile, String username, String password, Set<Role> roles, boolean isAvailable) {
+    public Vet(Profile profile, String username, String password, Set<Role> roles, boolean isAvailable, String specialty) {
         this.profile = profile;
         this.username = username;
         this.password = password;
         this.isAvailable = isAvailable;
         this.roles = roles;
+        this.specialty = specialty;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public Vet(String username, String password, Profile profile) {
-        this.username = username;
-        this.password = password;
-        this.profile = profile;
+    public String getSpecialty() {
+        return specialty;
     }
+
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
+    }
+
 
     public boolean isAvailable() {
         return isAvailable;
@@ -79,5 +84,8 @@ public class Vet {
 
     public Set<Role> getRoles() {
         return roles;
+    }
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

@@ -1,11 +1,10 @@
 package es.ulpgc.gs1.gs1prototype.controller;
 
+import es.ulpgc.gs1.gs1prototype.model.DTO.VetDTO;
 import es.ulpgc.gs1.gs1prototype.model.user.Vet;
 import es.ulpgc.gs1.gs1prototype.service.VetService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,6 +38,11 @@ public class VetController {
     @GetMapping(vetAvailablePath)
     public List<Vet> getAvailableVets(){
         return getAllVets();
+    }
+
+    @PutMapping(vetPath + "/{id}")
+    public void updateVet(@PathVariable Long id, @RequestBody VetDTO vet){
+        vetService.update(id,vet);
     }
 
 
