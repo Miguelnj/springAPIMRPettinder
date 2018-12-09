@@ -18,7 +18,7 @@ import java.util.Set;
 public class ThreadController {
 
     private final ThreadService threadService;
-    public static final String threadPath = "/threa ds";
+    public static final String threadPath = "/threads";
 
     @Autowired
     public ThreadController(ThreadService threadService){

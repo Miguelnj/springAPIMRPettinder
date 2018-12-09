@@ -5,13 +5,13 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "messages")
-public class Message {
+public class Message implements Comparable<Message>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false, unique = true)
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1000)
     private String content;
     private LocalDateTime writtenDate;
     private LocalDateTime lastEditDate;
@@ -62,5 +62,10 @@ public class Message {
 
     public String getWrittenBy() {
         return writtenBy;
+    }
+
+    @Override
+    public int compareTo(Message message){
+        return getWrittenDate().compareTo(message.getWrittenDate());
     }
 }

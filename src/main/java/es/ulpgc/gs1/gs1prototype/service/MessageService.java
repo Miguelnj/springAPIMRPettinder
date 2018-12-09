@@ -9,9 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.time.ZoneOffset;
+import java.util.*;
 
 @Service
 public class MessageService {
@@ -36,6 +37,7 @@ public class MessageService {
     public void add(MessageDTO message) {
         Message messageToAdd = new Message(message.getContent(), getLoggedUser().getUsername());
         messageToAdd = messageRepository.save(messageToAdd);
+
 
         Thread parentThread = threadService.get(message.getParentThreadId());
         parentThread.getMessages().add(messageToAdd);
